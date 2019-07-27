@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<!-- role表映射 -->
+	<class name="wyc.pojo.Role" table="t_role">
+		<id name="id" column="id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" length="40"/>
+		<!-- 一对多设置：roleId为user的外键 -->
+		<set name="users">
+			<key column="roleId" not-null="true"></key>
+			<one-to-many class="wyc.pojo.User"/>
+		</set>
+	</class>
+</hibernate-mapping>

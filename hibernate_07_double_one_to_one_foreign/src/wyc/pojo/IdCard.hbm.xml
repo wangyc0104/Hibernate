@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<!-- t_idCard表映射 -->
+	<class name="wyc.pojo.IdCard" table="t_idCard">
+		<id name="id" column="id">
+			<!-- 此处主键id和用户的id绑定（即身份证是被控端，用户是主控端） -->
+			<generator class="assigned"></generator>
+		</id>
+		<property name="address"/>
+		<!-- 被控端使用one-to-one标签，与主控端的idCard属性建议一对一的关系 -->
+		<one-to-one name="user" property-ref="idCard"/>
+	</class>
+</hibernate-mapping>

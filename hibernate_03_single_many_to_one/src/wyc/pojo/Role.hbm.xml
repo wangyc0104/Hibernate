@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<!-- 类的映射文件信息 -->
+<!-- package指定类的包名 可以不配置 如果不配置 那么在配置class的name时需要指定该类所在包-->
+<hibernate-mapping>
+
+	<!-- 	
+		class	配置类  
+		name	指类名  
+		table	指定表名（如果不写，默认类名为表名）
+	-->
+	<class name="wyc.pojo.Role" table="t_role">
+		<!-- 主键 -->
+		<id name="id" column="id">
+			<!-- 主键生成策略 -->
+			<generator class="identity"></generator>
+		</id>
+		<!-- 非主键 -->
+		<property name="name" length="40"/>
+	</class>
+	
+</hibernate-mapping>
