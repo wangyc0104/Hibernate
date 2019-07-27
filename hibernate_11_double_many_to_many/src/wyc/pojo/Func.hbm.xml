@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="wyc.pojo.Func" table="t_func">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name"/>
+		<property name="url"/>
+		<!-- 双向多对多，两个表中都写相应的标签 -->
+		<set name="roles" inverse="true"  table="t_role_func">
+			<!-- 当前类在关联表中的外键列名 -->
+			<key column="fid"></key>
+			<!-- 当前类所对应的类在关联表中的外键列名 -->
+			<many-to-many column="rid" class="wyc.pojo.Role"/>
+		</set>
+	</class>
+</hibernate-mapping>
